@@ -53,7 +53,7 @@ end
 
 t = Tandem.new(1)
 puts t.method(:rent).call
-puts t.method(:rend).super_method.call # interesting.
+puts t.method(:rent).super_method.call # interesting.
 
 =begin
 There is differences in a way to call 'super'
@@ -66,14 +66,4 @@ to the current method. Calling super() in the above example, will result that th
 will always be 1 for our Tandem, even if we pass a different number of gears in the method
 
 super(a,b,c) -> it will send exactly those arguments.
-=end
-
-
-
-
-
-=begin
-
-Exploring the 
-
 =end
