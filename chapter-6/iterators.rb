@@ -35,8 +35,9 @@ end
 array = [1,2,3,4,5]
 array.my_each {|item| puts "LOOK IT IS THE ITEM! #{item}"}
 
-array.my_map { |item| item * 2 }
-
+puts (array.my_map { |item| item * 2 })
+print array
+puts ''
 # block-local variables
 
 variable = 10

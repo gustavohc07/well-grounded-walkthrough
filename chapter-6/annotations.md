@@ -67,3 +67,29 @@ my_loop { puts "My-looping forever!" }
 What happens is, the method is executed. It is "giving" control to the code block, so the code block can be executed inside it. Then, when the code inside the code block finishes its execution, the control goes back to the method and resumes its executing immediately following the call to `yield`.
 
 The code block is part of the method call. In other words, a code block isn't an argument.
+
+## Error Handling and Exceptions
+
+Ruby handles unacceptable behavior at runtime by raising an exception. The problem with this, imho, is that exceptions would be raised while running the program and some might be hidden beneath all your code. So, if something happens on production, everything can go down.
+
+The begin/end clause is used to determined what parts of your code you want to be ready to rescue. Methods or code blocks doesn't need a begin/end clause, but if you want to isolate what you want to rescue, you are going to need it.
+
+To assign the exception object to a variable, you use the special operator `=>` along with the rescue command:
+
+```ruby
+rescue ArgumentError => e
+```
+
+### ensure clause
+
+The `ensure` clause will be executed whether an exception is raised or not.
+
+```ruby
+begin
+  raise ArgumentError
+rescue ArgumentError
+  raise # this will re-raise ArgumentError
+ensure
+  puts 'This is going to be executed whether an exception is raised or not'
+end
+```
