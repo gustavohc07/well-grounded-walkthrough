@@ -12,7 +12,7 @@ class Banner
     @text
   end
 
-  def +@ # interesting syntax.
+  def +@ # interesting syntax for defining a +instance
     @text.upcase
   end
 
