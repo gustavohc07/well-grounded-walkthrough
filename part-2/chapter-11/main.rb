@@ -153,14 +153,14 @@ EOM
 
 # Use a regular expression anchor to return the three company names that begin each line.
 
-company_regex = /(?<first_company>(?<=\n)\w+).+(?<second_company>^\w+-\w+).+(?<third_company>^\w+)/m
+company_regex = /(?<first_company>(?<=\n)\w+).+(?<second_company>^\w+-\w+).+(?<third_company>^\w+-\w+\s\w+)/m
 # p string
 match = string.match(company_regex)
 first_company = match[:first_company]
 second_company = match[:second_company]
 third_company = match[:third_company]
 
-puts "The first company is: #{ first_company}
+puts "The first company is: #{ first_company }
 The second company is: #{ second_company }
 The third company is: #{ third_company}"
 
@@ -183,3 +183,37 @@ h = {
 }
 
 p h
+
+
+# 11.6 - Converting Strings and regular expressions to each other
+
+# - We can interpolate:
+
+str = "def"
+/abc#{str}/
+
+str = "a.c"
+
+re = /#{str}/
+re.match("a.c")
+# => <MatchData "a.c">
+
+re.match("abc")
+# => <MatchData "abc">
+
+Regexp.escape(str) # This will scape the special characters used in Regex.
+
+re = /#{Regexp.escape(str)}/
+re.match("a.c")
+# => <MatchData "a.c">
+
+re.match("abc")
+# => nil
+
+# 11.7 Common Methods that use regular expressions
+
+
+## String#scan
+
+"testing 1 2 3 testing 4 5 6".scan(/\d/)
+# => ["1", "2", "3", "4", "5", "6"]
