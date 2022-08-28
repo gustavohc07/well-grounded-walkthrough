@@ -1,0 +1,3 @@
+this is a record
+part-2/chapter-12/output.rb:6:in `/': divided by 0 (ZeroDivisionError)
+	from part-2/chapter-12/output.rb:6:in `<main>'
