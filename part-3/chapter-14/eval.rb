@@ -69,6 +69,12 @@ c.class_eval do
   end
 end
 
+class << c
+  def some_method
+    puts "What is the difference between the above??" # Simple put, here we are defining a singleton method for Class. "class_eval" let you be inside the class definition. So you can use it to define instance methods.
+  end
+end
+
 c_instance = c.new
 c_instance.some_method
 

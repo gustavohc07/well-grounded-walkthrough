@@ -164,7 +164,7 @@ end
 
 puts "HELLO".reverse
 
-# Per-objhect changes with extend -> mix of module into an object's singleton class using the "extend" method.
+# Per-object changes with extend -> mix of module into an object's singleton class using the "extend" method.
 
 module Secretive
   def name
